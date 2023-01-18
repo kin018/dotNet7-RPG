@@ -1,4 +1,4 @@
-global using dotNet7_RPG.Models; //could have here 
+global using dotNet7_RPG.Models; //could have here
 
 var builder = WebApplication.CreateBuilder(args);
 
