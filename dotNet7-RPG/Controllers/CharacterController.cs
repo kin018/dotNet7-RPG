@@ -1,6 +1,10 @@
-﻿namespace dotNet7_RPG.Controllers
+﻿using Microsoft.AspNetCore.Mvc;
+
+namespace dotNet7_RPG.Controllers
 {
-   public class CharacterController
+   [ApiController]
+   public class CharacterController : ControllerBase //since its just an API we use ControllerBase but if we were using a view we derive from controller
    {
+
    }
 }
