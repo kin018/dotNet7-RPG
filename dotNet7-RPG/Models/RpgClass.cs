@@ -1,5 +1,8 @@
-﻿namespace dotNet7_RPG.Models
+﻿using System.Text.Json.Serialization;
+
+namespace dotNet7_RPG.Models
 {
+   [JsonConverter(typeof(JsonStringEnumConverter))]
    public enum RpgClass
    {
       Knight = 1,
