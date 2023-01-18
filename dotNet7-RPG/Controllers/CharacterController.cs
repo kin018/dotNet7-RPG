@@ -7,12 +7,13 @@ namespace dotNet7_RPG.Controllers
    [Route("[controller]")]
    public class CharacterController : ControllerBase //since its just an API we use ControllerBase but if we were using a view we derive from controller
    {
-      private static List<Character> characters = new List<Character> { 
+      private static List<Character> characters = new List<Character> {
          new Character(),
          new Character {Id = 1, Name = "Sam" },
       };
+
       //[HttpGet]
-      //[Route("[id]")] can do this or the below for routing 
+      //[Route("[id]")] can do this or the below for routing
       [HttpGet("GetAll")]
       public ActionResult<List<Character>> Get()
       {
@@ -24,6 +25,5 @@ namespace dotNet7_RPG.Controllers
       {
          return Ok(characters.FirstOrDefault(c => c.Id == id));
       }
-
    }
 }
