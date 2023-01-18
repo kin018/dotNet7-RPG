@@ -10,7 +10,7 @@ namespace dotNet7_RPG.Controllers
       private static Character knight = new Character();
 
       [HttpGet]
-      public IActionResult Get()
+      public ActionResult<Character> Get() 
       {
          return Ok(knight);
       }
