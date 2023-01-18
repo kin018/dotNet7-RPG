@@ -17,5 +17,12 @@ namespace dotNet7_RPG.Controllers
       {
          return Ok(characters);
       }
+
+      [HttpGet]
+      public ActionResult<Character> GetSingleCharacter()
+      {
+         return Ok(characters[0]);
+      }
+
    }
 }
