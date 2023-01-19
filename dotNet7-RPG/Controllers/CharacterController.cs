@@ -1,21 +1,18 @@
 ﻿//global using dotNet7_RPG.Models;  Could also be here for global usings or could simply do using dotNet7_RPG.Models; for each controller etc. Like previously
 using dotNet7_RPG.Services.CharacterService;
-using Microsoft.AspNetCore.Mvc;
 
 namespace dotNet7_RPG.Controllers
 {
    [ApiController]
    [Route("[controller]")]
    public class CharacterController : ControllerBase //since its just an API we use ControllerBase but if we were using a view we derive from controller
-   {
-      private static List<Character> characters = new List<Character> {
-         new Character(),
-         new Character {Id = 1, Name = "Sam" },
-      };
+   {     
+      private readonly ICharacterService _characterService;
 
-      public CharacterController(ICharacterService characterService)
+      //Constructor
+      public CharacterController(ICharacterService characterService) //Icharacter chracterService instance  is the injectable dependency
       {
-
+         _characterService = characterService;
       }
 
       //[HttpGet]
@@ -23,20 +20,20 @@ namespace dotNet7_RPG.Controllers
       [HttpGet("GetAll")]
       public ActionResult<List<Character>> Get()
       {
-         return Ok(characters);
+         return Ok(_characterService.GetAllCharacters());
       }
 
       [HttpGet("{id}")]
       public ActionResult<Character> GetSingleCharacter(int id)
       {
-         return Ok(characters.FirstOrDefault(c => c.Id == id));
+         return Ok(_characterService.GetCharacterById(id));
       }
 
       [HttpPost]
       public ActionResult<List<Character>> AddCharacter(Character newCharacter) { 
       
-         characters.Add(newCharacter);
-         return Ok(characters);  
+         
+         return Ok(_characterService.AddCharacter(newCharacter));  
       }
    }
 }
