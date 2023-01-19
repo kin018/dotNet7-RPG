@@ -1,4 +1,5 @@
 ﻿//global using dotNet7_RPG.Models;  Could also be here for global usings or could simply do using dotNet7_RPG.Models; for each controller etc. Like previously
+using dotNet7_RPG.Services.CharacterService;
 using Microsoft.AspNetCore.Mvc;
 
 namespace dotNet7_RPG.Controllers
@@ -12,7 +13,7 @@ namespace dotNet7_RPG.Controllers
          new Character {Id = 1, Name = "Sam" },
       };
 
-      public CharacterController()
+      public CharacterController(ICharacterService characterService)
       {
 
       }
