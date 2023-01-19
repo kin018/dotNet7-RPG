@@ -12,6 +12,11 @@ namespace dotNet7_RPG.Controllers
          new Character {Id = 1, Name = "Sam" },
       };
 
+      public CharacterController()
+      {
+
+      }
+
       //[HttpGet]
       //[Route("[id]")] can do this or the below for routing
       [HttpGet("GetAll")]
