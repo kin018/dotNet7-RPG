@@ -1,6 +1,6 @@
 global using dotNet7_RPG.Models; //could have here
-global using Microsoft.AspNetCore.Mvc;
 global using dotNet7_RPG.Services.CharacterService;
+global using Microsoft.AspNetCore.Mvc;
 
 var builder = WebApplication.CreateBuilder(args);
 
