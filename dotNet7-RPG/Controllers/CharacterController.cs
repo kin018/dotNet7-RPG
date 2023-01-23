@@ -17,19 +17,19 @@ namespace dotNet7_RPG.Controllers
       //[HttpGet]
       //[Route("[id]")] can do this or the below for routing
       [HttpGet("GetAll")]
-      public async Task<ActionResult<ServiceResponse<List<Character>>>> Get()
+      public async Task<ActionResult<ServiceResponse<List<GetCharacterDTO>>>> Get()
       {
          return Ok(await _characterService.GetAllCharacters());
       }
 
       [HttpGet("{id}")]
-      public async Task<ActionResult<ServiceResponse<Character>>> GetSingleCharacter(int id)
+      public async Task<ActionResult<ServiceResponse<GetCharacterDTO>>> GetSingleCharacter(int id)
       {
          return Ok(await _characterService.GetCharacterById(id));
       }
 
       [HttpPost]
-      public async Task<ActionResult<ServiceResponse<List<Character>>>> AddCharacter(Character newCharacter)
+      public async Task<ActionResult<ServiceResponse<List<GetCharacterDTO>>>> AddCharacter(AddCharacterDTO newCharacter)
       {
          return Ok(await _characterService.AddCharacter(newCharacter));
       }
