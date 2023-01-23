@@ -3,10 +3,10 @@
    public interface ICharacterService
    {
       //Interface gets these 3 methods in essence the methods in character controller
-      Task<List<Character>> GetAllCharacters(); //return a list of characters
+      Task<ServiceResponse<List<Character>>> GetAllCharacters(); //return a list of characters
 
-      Task<List<Character>> AddCharacter(Character newCharacter);//Return the list of characters
+      Task<List<ServiceResponse<Character>>> AddCharacter(Character newCharacter);//Return the list of characters
 
-      Task<Character> GetCharacterById(int id);//return single character
+      Task<ServiceResponse<Character>> GetCharacterById(int id);//return single character
    }
 }
