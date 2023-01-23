@@ -22,7 +22,16 @@ namespace dotNet7_RPG.Services.CharacterService
 
       public Character GetCharacterById(int id)
       {
-         return characters.FirstOrDefault(c => c.Id == id); //returns a character where the 1st Character id == given id
+         var character = characters.FirstOrDefault(c => c.Id == id);
+         if (character != null)
+         {
+            return character;
+         }
+         else
+         {
+            throw new Exception("Hey man... say man... Character not found man...");
+
+         }
       }
    }
 }
