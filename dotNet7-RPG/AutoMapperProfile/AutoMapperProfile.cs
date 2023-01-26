@@ -5,7 +5,7 @@
       public AutoMapperProfile()
       {
          CreateMap<Character, GetCharacterDTO>();
-         CreateMap<Character, GetCharacterDTO>();
+         
       }
    }
 }
