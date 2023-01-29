@@ -15,7 +15,7 @@ namespace dotNet7_RPG.Controllers
       }
 
       //[HttpGet]
-      //[Route("[id]")] can do this or the below for routing
+      //[Route("[id]")] can do this or the below for routing 
       [HttpGet("GetAll")]
       public async Task<ActionResult<ServiceResponse<List<GetCharacterDTO>>>> Get()
       {
