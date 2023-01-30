@@ -41,5 +41,10 @@
          serviceResponse.Data = _mapper.Map<GetCharacterDTO>(character);
          return serviceResponse;
       }
+
+      public Task<ServiceResponse<GetCharacterDTO>> UpdateCharacter(UpdateCharacterDTO newCharacter)
+      {
+         throw new NotImplementedException();
+      }
    }
 }
