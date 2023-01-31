@@ -51,7 +51,7 @@
             var character = characters.FirstOrDefault(c => c.Id == updatedCharacter.Id);
             if (character == null)
             {
-               throw new Exception( $"Character wih Id '{updatedCharacter.Id}' not found ")
+               throw new Exception($"Character wih Id '{updatedCharacter.Id}' not found ");
 
             }
 
