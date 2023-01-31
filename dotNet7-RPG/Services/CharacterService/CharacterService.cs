@@ -35,16 +35,28 @@
 
       public async Task<ServiceResponse<GetCharacterDTO>> GetCharacterById(int id)
       {
-         //removed if(not null) statement since serviceResponse is of nullable type
+         //removed if(not null) statement since serviceResponse is of null-able type
          var serviceResponse = new ServiceResponse<GetCharacterDTO>();
          var character = characters.FirstOrDefault(c => c.Id == id);
          serviceResponse.Data = _mapper.Map<GetCharacterDTO>(character);
          return serviceResponse;
       }
 
-      public Task<ServiceResponse<GetCharacterDTO>> UpdateCharacter(UpdateCharacterDTO updatedCharacter)
+      public async Task<ServiceResponse<GetCharacterDTO>> UpdateCharacter(UpdateCharacterDTO updatedCharacter)
       {
-         throw new NotImplementedException();
-      }
+         var serviceResponse = new ServiceResponse<GetCharacterDTO>();
+         var character = characters.FirstOrDefault(c => c.Id == updatedCharacter.Id);
+         
+         character.Name = updatedCharacter.Name;
+         character.HitPoints = updatedCharacter.HitPoints;
+         character.Strength = updatedCharacter.Strength;
+         character.Defense = updatedCharacter.Defense;
+         character.Intelligence = updatedCharacter.Intelligence;
+         character.Class = updatedCharacter.Class;
+
+         serviceResponse.Data = _mapper.Map<GetCharacterDTO>(character)
+
+         return serviceResponse; 
+   }
    }
 }
