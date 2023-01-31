@@ -54,7 +54,7 @@
          character.Intelligence = updatedCharacter.Intelligence;
          character.Class = updatedCharacter.Class;
 
-         serviceResponse.Data = _mapper.Map<GetCharacterDTO>(character)
+         serviceResponse.Data = _mapper.Map<GetCharacterDTO>(character);
 
          return serviceResponse; 
    }
