@@ -56,7 +56,7 @@
 
          serviceResponse.Data = _mapper.Map<GetCharacterDTO>(character);
 
-         return serviceResponse; 
+         return serviceResponse;  
    }
    }
 }
