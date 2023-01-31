@@ -52,7 +52,6 @@
             if (character == null)
             {
                throw new Exception($"Character wih Id '{updatedCharacter.Id}' not found ");
-
             }
 
             character.Name = updatedCharacter.Name;
@@ -67,10 +66,10 @@
          catch (Exception ex)
          {
             serviceResponse.Success = false;
-            serviceResponse.Message = ex.Message;            
+            serviceResponse.Message = ex.Message;
          }
 
-         return serviceResponse;  
-   }
+         return serviceResponse;
+      }
    }
 }
