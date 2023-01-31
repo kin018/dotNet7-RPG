@@ -36,7 +36,7 @@ namespace dotNet7_RPG.Controllers
          return Ok(await _characterService.AddCharacter(newCharacter));
       }
 
-      [HttpPost]
+      //[HttpPost]
 
    }
 }

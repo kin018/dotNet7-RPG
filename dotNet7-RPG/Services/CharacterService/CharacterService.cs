@@ -42,7 +42,7 @@
          return serviceResponse;
       }
 
-      public Task<ServiceResponse<GetCharacterDTO>> UpdateCharacter(UpdateCharacterDTO newCharacter)
+      public Task<ServiceResponse<GetCharacterDTO>> UpdateCharacter(UpdateCharacterDTO updatedCharacter)
       {
          throw new NotImplementedException();
       }
