@@ -53,6 +53,7 @@
             {
                throw new Exception($"Character wih Id '{updatedCharacter.Id}' not found ");
             }
+            //could update character using auotmapper instead >>>>>>>>>  _mapper.Map<Character>(updatedCharacter)
 
             character.Name = updatedCharacter.Name;
             character.HitPoints = updatedCharacter.HitPoints;
