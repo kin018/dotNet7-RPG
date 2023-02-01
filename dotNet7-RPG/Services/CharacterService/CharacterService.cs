@@ -26,6 +26,32 @@
          return serviceResponse;
       }
 
+      public async Task<ServiceResponse<List<GetCharacterDTO>>> DeleteCharacterById(int id)
+      {
+         var serviceResponse = new ServiceResponse<List<GetCharacterDTO>>();
+
+         try
+         {
+            var character = characters.FirstOrDefault(c => c.Id == id);
+            if (character == null)
+            {
+               throw new Exception($"Character with Id '{id}' not found ");
+            }
+            //could update character using auto mapper instead >>>>>>>>>  _mapper.Map<Character>(updatedCharacter)
+
+            characters.Remove(character);
+
+            serviceResponse.Data = characters.Select(c => _mapper.Map<GetCharacterDTO>(c)).ToList();
+         }
+         catch (Exception ex)
+         {
+            serviceResponse.Success = false;
+            serviceResponse.Message = ex.Message;
+         }
+
+         return serviceResponse;
+      }
+
       public async Task<ServiceResponse<List<GetCharacterDTO>>> GetAllCharacters()
       {
          var serviceResponse = new ServiceResponse<List<GetCharacterDTO>>();
@@ -51,9 +77,9 @@
             var character = characters.FirstOrDefault(c => c.Id == updatedCharacter.Id);
             if (character == null)
             {
-               throw new Exception($"Character wih Id '{updatedCharacter.Id}' not found ");
+               throw new Exception($"Character with Id '{updatedCharacter.Id}' not found ");
             }
-            //could update character using auotmapper instead >>>>>>>>>  _mapper.Map<Character>(updatedCharacter)
+            //could update character using auto mapper instead >>>>>>>>>  _mapper.Map<Character>(updatedCharacter)
 
             character.Name = updatedCharacter.Name;
             character.HitPoints = updatedCharacter.HitPoints;
@@ -72,5 +98,7 @@
 
          return serviceResponse;
       }
+
+
    }
 }

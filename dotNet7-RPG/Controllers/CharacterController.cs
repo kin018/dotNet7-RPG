@@ -40,7 +40,21 @@ namespace dotNet7_RPG.Controllers
          var response = await _characterService.UpdateCharacter(updateCharacter);
          if (response.Data is null)
          {
-            return NotFound();
+            return NotFound(response);
+         }
+         else
+         {
+            return Ok(response);
+         }
+      }
+
+      [HttpDelete("{id}")]
+      public async Task<ActionResult<ServiceResponse<GetCharacterDTO>>> DeleteCharacterById(int id)
+      {
+         var response = await _characterService.DeleteCharacterById(id);
+         if (response.Data is null)
+         {
+            return NotFound(response);
          }
          else
          {
